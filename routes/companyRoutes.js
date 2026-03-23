@@ -7,16 +7,65 @@ const {
 } = require("../controllers/companyController");
 const { protect, authorizeRoles } = require("../middleware/authMiddleware");
 
-// All routes require company role
-router.use(protect, authorizeRoles("company"));
+/**
+ * @swagger
+ * tags:
+ *   name: Company
+ *   description: Routes for company users
+ */
 
-// Dashboard stats
-router.get("/stats", getCompanyStats);
+/**
+ * @swagger
+ * /api/company/stats:
+ *   get:
+ *     summary: Get company dashboard statistics
+ *     tags: [Company]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Company stats retrieved successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ */
+router.get("/stats", protect, authorizeRoles("company"), getCompanyStats);
 
-// Recent applications
-router.get("/applications/recent", getRecentApplications);
+/**
+ * @swagger
+ * /api/company/applications/recent:
+ *   get:
+ *     summary: Get recent applications received by the company
+ *     tags: [Company]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Recent applications retrieved successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ */
+router.get("/applications/recent", protect, authorizeRoles("company"), getRecentApplications);
 
-// Get all supervisors to assign
-router.get("/supervisors", getAllSupervisors);
+/**
+ * @swagger
+ * /api/company/supervisors:
+ *   get:
+ *     summary: Get all supervisors to assign to offers
+ *     tags: [Company]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of supervisors retrieved successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ */
+router.get("/supervisors", protect, authorizeRoles("company"), getAllSupervisors);
 
 module.exports = router;
