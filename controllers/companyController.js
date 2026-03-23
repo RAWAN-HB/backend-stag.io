@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const Offer = require("../models/offer");
-const Application = require("../models/application");
-const Convention = require("../models/convention");
+const Application = require("../models/Application");
+const Convention = require("../models/Convention");
 
 // @route   GET /api/company/stats
 // @access  Private (Company only)

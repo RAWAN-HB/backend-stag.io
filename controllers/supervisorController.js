@@ -1,5 +1,5 @@
 const Tracking = require("../models/tracking");
-const Convention = require("../models/convention");
+const Convention = require("../models/Convention");
 const Certificate = require("../models/Certificate");
 
 // Helper: get evaluation label from score

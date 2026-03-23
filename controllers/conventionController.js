@@ -1,6 +1,6 @@
-const Convention = require("../models/convention");
+const Convention = require("../models/Convention");
 const Certificate = require("../models/Certificate");
-const Application = require("../models/application");
+const Application = require("../models/Application");
 const Tracking = require("../models/tracking");
 const { generateConventionPDF } = require("../config/pdfGenerator");
 
