@@ -1,4 +1,4 @@
-const Application = require("../models/application");
+const Application = require("../models/Application");
 const Offer = require("../models/offer");
 const nodemailer = require("nodemailer");
 
